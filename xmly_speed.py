@@ -549,6 +549,7 @@ def account(cookies,index):
         "text":f'账号{index}',
         "desp":f"""剩余{result["total"]/10000} > 20元，可以提现！！！"""
     }
+    print (f"""https://sc.ftqq.com/{os.environ["PUSH_KEY"]}.send""")
     response = requests.get(
         f"""https://sc.ftqq.com/{os.environ["PUSH_KEY"]}.send""", headers=headersNotify, data = data)
 
