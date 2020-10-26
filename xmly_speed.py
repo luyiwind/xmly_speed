@@ -21,7 +21,7 @@ cookies1 = ""  # 本地运行账号填写
 cookies2 = ""
 cookiesList = [cookies1, ]  # 多账号准备
 XMLY_ACCUMULATE_TIME = 0    # 希望刷时长的,此处置1
-
+num = 0
 ###################################################
 # 对应方案1:  GitHub action自动运行,此处无需填写; 
 if "XMLY_SPEED_COOKIE" in os.environ:
@@ -774,11 +774,8 @@ def card(cookies):
             card_exchangeCard(cookies, need.pop(), fromRecordIdList)
 
 ##################################################################
-
-num = 0
 for i in cookiesList:
     num += 1
-    print(num)
     print(f">>>>>>>>>【账号开始 {num}】")
     cookies = str2dict(i)
     uid = cookies["1&_token"].split("&")[0]
