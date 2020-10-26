@@ -543,9 +543,9 @@ def account(cookies,index):
 
 """)
 
-    if (result["total"]/10000 - 19.0 >0):
+    if (result["total"]/10000 - 20.0 > 0):
         response = requests.get(
-            f"""https://sc.ftqq.com/SCU120556Teb7de72e0c3dec7a61d47017d080e19f5f967dd7750b5.send?text=账号{index}&desp=剩余{result["total"]/10000} >= 20元，可以提现！！！""")
+            f"""https://sc.ftqq.com/SCU120556Teb7de72e0c3dec7a61d47017d080e19f5f967dd7750b5.send?text=账号{index}&desp=喜马拉雅有账号剩余{result["total"]/10000} > 20元，可以提现啦！！！""")
 
 
 def answer(cookies):
@@ -775,16 +775,16 @@ for i in cookiesList:
     cookies = str2dict(i)
     uid = cookies["1&_token"].split("&")[0]
     uuid = cookies["XUM"]
-    #if XMLY_ACCUMULATE_TIME == 1:
-    #    saveListenTime(cookies)
-    #    listenData(cookies)
-    #read(cookies,uid)  # 阅读
-    #bubble(cookies)  # 收金币气泡
-    #checkin(cookies)  # 自动签到
-    #lottery_info(cookies)  # 大转盘4次
-    #answer(cookies)      # 答题赚金币
-    #cardReportTime(cookies)  # 卡牌
-    #getOmnipotentCard(cookies)  # 领取万能卡
-    #card(cookies)  # 抽卡
-    #index_baoxiang_award(cookies)  # 首页、宝箱奖励及翻倍
+    if XMLY_ACCUMULATE_TIME == 1:
+        saveListenTime(cookies)
+        listenData(cookies)
+    read(cookies,uid)  # 阅读
+    bubble(cookies)  # 收金币气泡
+    checkin(cookies)  # 自动签到
+    lottery_info(cookies)  # 大转盘4次
+    answer(cookies)      # 答题赚金币
+    cardReportTime(cookies)  # 卡牌
+    getOmnipotentCard(cookies)  # 领取万能卡
+    card(cookies)  # 抽卡
+    index_baoxiang_award(cookies)  # 首页、宝箱奖励及翻倍
     account(cookies,idx)
