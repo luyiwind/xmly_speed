@@ -786,5 +786,5 @@ for i in cookiesList:
     getOmnipotentCard(cookies)  # 领取万能卡
     card(cookies)  # 抽卡
     index_baoxiang_award(cookies)  # 首页、宝箱奖励及翻倍
-	account(cookies,idx)
+    account(cookies,idx)
 
