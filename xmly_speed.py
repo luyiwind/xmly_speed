@@ -542,16 +542,10 @@ def account(cookies,index):
 累计获得:{result["historyTotal"]/10000}
 
 """)
-    headersNotify = {
-        'Content-Type': 'application/x-www-form-urlencoded',
-    }
-    data = {
-        "text":f'账号{index}',
-        "desp":f"""剩余{result["total"]/10000} >= 20元，可以提现！！！"""
-    }
-    if (result["total"]/10000 > 1.0):
-        response = requests.get(
-            'https://sc.ftqq.com/SCU120556Teb7de72e0c3dec7a61d47017d080e19f5f967dd7750b5.send', headers=headersNotify, data = data)
+
+    #if (result["total"]/10000 > 1.0):
+    response = requests.get(
+            f"""https://sc.ftqq.com/SCU120556Teb7de72e0c3dec7a61d47017d080e19f5f967dd7750b5.send?text=账号{index}&desp=剩余{result["total"]/10000} >= 20元，可以提现！！！""")
 
 
 def answer(cookies):
