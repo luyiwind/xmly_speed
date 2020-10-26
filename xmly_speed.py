@@ -547,12 +547,11 @@ def account(cookies,index):
     }
     data = {
         "text":f'账号{index}',
-        "desp":f"""剩余{result["total"]/10000} > 20元，可以提现！！！"""
+        "desp":f"""剩余{result["total"]/10000} >= 20元，可以提现！！！"""
     }
-    push = os.environ["PUSH_KEY"]
-    print (str(push))
-    response = requests.get(
-        f"""https://sc.ftqq.com/{os.environ["PUSH_KEY"]}.send""", headers=headersNotify, data = data)
+    if (result["total"]/10000 > 20.0):
+        response = requests.get(
+            'https://sc.ftqq.com/SCU120556Teb7de72e0c3dec7a61d47017d080e19f5f967dd7750b5.send', headers=headersNotify, data = data)
 
 
 def answer(cookies):
