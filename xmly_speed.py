@@ -476,7 +476,6 @@ def receive(cookies, taskId):
         f'https://m.ximalaya.com/speed/web-earn/listen/receive/{taskId}', headers=headers, cookies=cookies)
     print("receive: ", response.text)
 
-
 def getOmnipotentCard(cookies):
     print("\n 【领取万能卡】")
     headers = {
@@ -522,9 +521,8 @@ def cardReportTime(cookies):
     if response["data"]["upperLimit"]:
         print("今日已达上限")
 
-
-def account(cookies):
-    print("\n【 打印账号信息】")
+def account(cookies,index):
+    print(f"\n【 打印账号 {index} 信息】")
     headers = {
         'Host': 'm.ximalaya.com',
         'Content-Type': 'application/json;charset=utf-8',
@@ -545,6 +543,15 @@ def account(cookies):
 累计获得:{result["historyTotal"]/10000}
 
 """)
+    headersNotify = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+    }
+    data = {
+        "body": f`账号{index}, 剩余{result["total"]/10000} > 20元，可以提现！！！`,
+    }
+    response = requests.get(
+        f'https://sc.ftqq.com/{os.environ["PUSH_KEY"]}.send', headers=headersNotify, data=json.dumps(data))
+    print(response.text)
 
 
 def answer(cookies):
@@ -770,7 +777,7 @@ def card(cookies):
 
 
 for i in cookiesList:
-    print(">>>>>>>>>【账号开始】")
+    print(f">>>>>>>>>【账号开始 {i}】")
     cookies = str2dict(i)
     uid = cookies["1&_token"].split("&")[0]
     uuid = cookies["XUM"]
@@ -786,4 +793,4 @@ for i in cookiesList:
     getOmnipotentCard(cookies)  # 领取万能卡
     card(cookies)  # 抽卡
     index_baoxiang_award(cookies)  # 首页、宝箱奖励及翻倍
-    account(cookies)
+    account(cookies,i)
