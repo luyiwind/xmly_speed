@@ -775,9 +775,9 @@ def card(cookies):
 
 ##################################################################
 
-
+num = 1
 for i in cookiesList:
-    print(f">>>>>>>>>【账号开始 {i}】")
+    print(f">>>>>>>>>【账号开始 {num}】")
     cookies = str2dict(i)
     uid = cookies["1&_token"].split("&")[0]
     uuid = cookies["XUM"]
@@ -793,4 +793,5 @@ for i in cookiesList:
     getOmnipotentCard(cookies)  # 领取万能卡
     card(cookies)  # 抽卡
     index_baoxiang_award(cookies)  # 首页、宝箱奖励及翻倍
-    account(cookies,i)
+    account(cookies,num)
+    num = num+1
