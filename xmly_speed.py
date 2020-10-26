@@ -521,7 +521,7 @@ def cardReportTime(cookies):
         print("今日已达上限")
 
 def account(cookies,index):
-    print(f"\n【 打印账号 {index} 信息】")
+    print("\n【 打印账号信息】")
     headers = {
         'Host': 'm.ximalaya.com',
         'Content-Type': 'application/json;charset=utf-8',
@@ -545,7 +545,7 @@ def account(cookies,index):
 
     if (result["total"]/10000 - 20.0 > 0):
         response = requests.get(
-            f"""https://sc.ftqq.com/SCU120556Teb7de72e0c3dec7a61d47017d080e19f5f967dd7750b5.send?text=账号{index}&desp=喜马拉雅有账号剩余{result["total"]/10000} > 20元，可以提现啦！！！""")
+            f"""https://sc.ftqq.com/SCU120556Teb7de72e0c3dec7a61d47017d080e19f5f967dd7750b5.send?text=喜马拉雅体现，账号{index}&desp=喜马拉雅有账号剩余{result["total"]/10000} > 20元，可以提现啦！！！""")
 
 
 def answer(cookies):
@@ -768,11 +768,9 @@ def card(cookies):
             card_exchangeCard(cookies, need.pop(), fromRecordIdList)
 
 ##################################################################
-idx = 0
-for i in cookiesList:
-    idx += 1
+for idx in range(len(cookiesList)):
     print(f">>>>>>>>>【账号开始 {idx}】")
-    cookies = str2dict(i)
+    cookies = str2dict(cookiesList[idx])
     uid = cookies["1&_token"].split("&")[0]
     uuid = cookies["XUM"]
     if XMLY_ACCUMULATE_TIME == 1:
