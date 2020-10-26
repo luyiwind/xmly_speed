@@ -770,6 +770,7 @@ def card(cookies):
 
 ##################################################################
 for i in cookiesList:
+    idx += 1
     print(">>>>>>>>>【账号开始】-", idx)
     cookies = str2dict(i)
     uid = cookies["1&_token"].split("&")[0]
