@@ -546,12 +546,9 @@ def account(cookies,index):
     headersNotify = {
         'Content-Type': 'application/x-www-form-urlencoded',
     }
-    data = {
-        "body": f"""账号{index}, 剩余{result["total"]/10000} > 20元，可以提现！！！""",
-    }
+    bodyNotify = f"""账号{index}, 剩余{result["total"]/10000} > 20元，可以提现！！！"""
     response = requests.get(
-        f'https://sc.ftqq.com/{os.environ["PUSH_KEY"]}.send', headers=headersNotify, data=json.dumps(data))
-    print(response.text)
+        f"""https://sc.ftqq.com/{os.environ["PUSH_KEY"]}.send""", headers=headersNotify, body=bodyNotify)
 
 
 def answer(cookies):
@@ -777,7 +774,7 @@ def card(cookies):
 
 num = 1
 for i in cookiesList:
-    print(f">>>>>>>>>【账号开始 {num}】")
+    print(f">>>>>>>>>【账号开始 {num++}】")
     cookies = str2dict(i)
     uid = cookies["1&_token"].split("&")[0]
     uuid = cookies["XUM"]
@@ -794,4 +791,3 @@ for i in cookiesList:
     card(cookies)  # 抽卡
     index_baoxiang_award(cookies)  # 首页、宝箱奖励及翻倍
     account(cookies,num)
-    num = num+1
