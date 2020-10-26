@@ -549,7 +549,8 @@ def account(cookies,index):
         "text":f'账号{index}',
         "desp":f"""剩余{result["total"]/10000} > 20元，可以提现！！！"""
     }
-    print (f"""https://sc.ftqq.com/{os.environ["PUSH_KEY"]}.send""")
+    push = os.environ["PUSH_KEY"]
+    print (push)
     response = requests.get(
         f"""https://sc.ftqq.com/{os.environ["PUSH_KEY"]}.send""", headers=headersNotify, data = data)
 
@@ -774,7 +775,9 @@ def card(cookies):
             card_exchangeCard(cookies, need.pop(), fromRecordIdList)
 
 ##################################################################
-for idx,i in enumerate(cookiesList):
+idx = 0
+for i in cookiesList:
+    idx += 1
     print(f">>>>>>>>>【账号开始 {idx}】")
     cookies = str2dict(i)
     uid = cookies["1&_token"].split("&")[0]
