@@ -778,20 +778,21 @@ def card(cookies):
 num = 0
 for i in cookiesList:
     num += 1
+    print(num)
     print(f">>>>>>>>>【账号开始 {num}】")
     cookies = str2dict(i)
     uid = cookies["1&_token"].split("&")[0]
     uuid = cookies["XUM"]
-    if XMLY_ACCUMULATE_TIME == 1:
-        saveListenTime(cookies)
-        listenData(cookies)
-    read(cookies,uid)  # 阅读
-    bubble(cookies)  # 收金币气泡
-    checkin(cookies)  # 自动签到
-    lottery_info(cookies)  # 大转盘4次
-    answer(cookies)      # 答题赚金币
-    cardReportTime(cookies)  # 卡牌
-    getOmnipotentCard(cookies)  # 领取万能卡
-    card(cookies)  # 抽卡
-    index_baoxiang_award(cookies)  # 首页、宝箱奖励及翻倍
+    #if XMLY_ACCUMULATE_TIME == 1:
+    #    saveListenTime(cookies)
+    #    listenData(cookies)
+    #read(cookies,uid)  # 阅读
+    #bubble(cookies)  # 收金币气泡
+    #checkin(cookies)  # 自动签到
+    #lottery_info(cookies)  # 大转盘4次
+    #answer(cookies)      # 答题赚金币
+    #cardReportTime(cookies)  # 卡牌
+    #getOmnipotentCard(cookies)  # 领取万能卡
+    #card(cookies)  # 抽卡
+    #index_baoxiang_award(cookies)  # 首页、宝箱奖励及翻倍
     account(cookies,num)
