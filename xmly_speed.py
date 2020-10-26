@@ -546,9 +546,13 @@ def account(cookies,index):
     headersNotify = {
         'Content-Type': 'application/x-www-form-urlencoded',
     }
-    bodyNotify = f"""账号{index}, 剩余{result["total"]/10000} > 20元，可以提现！！！"""
+    data = {
+        "text":f'账号{index}',
+        "desp":f"""剩余{result["total"]/10000} > 20元，可以提现！！！"""
+    }
+    bodyNotify = 
     response = requests.get(
-        f"""https://sc.ftqq.com/{os.environ["PUSH_KEY"]}.send""", headers=headersNotify, body=bodyNotify)
+        f"""https://sc.ftqq.com/{os.environ["PUSH_KEY"]}.send""", headers=headersNotify, data = data)
 
 
 def answer(cookies):
