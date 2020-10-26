@@ -772,4 +772,4 @@ def card(cookies):
 for i in cookiesList:
     print(">>>>>>>>>【账号开始】-", idx)
 
-    account(cookies,idx)
+
