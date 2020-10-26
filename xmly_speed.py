@@ -773,8 +773,8 @@ def card(cookies):
             card_exchangeCard(cookies, need.pop(), fromRecordIdList)
 
 ##################################################################
-for num,i in enumerate(cookiesList):
-    print(f">>>>>>>>>【账号开始 {num}】")
+for idx,i in enumerate(cookiesList):
+    print(f">>>>>>>>>【账号开始 {idx}】")
     cookies = str2dict(i)
     uid = cookies["1&_token"].split("&")[0]
     uuid = cookies["XUM"]
@@ -790,4 +790,4 @@ for num,i in enumerate(cookiesList):
     #getOmnipotentCard(cookies)  # 领取万能卡
     #card(cookies)  # 抽卡
     #index_baoxiang_award(cookies)  # 首页、宝箱奖励及翻倍
-    account(cookies,num)
+    account(cookies,idx)
