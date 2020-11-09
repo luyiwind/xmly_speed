@@ -550,7 +550,7 @@ def account(cookies,index):
     if (date_stamp>63600):
         if (date_stamp<67200):
             response = requests.get(
-            f"""https://sc.ftqq.com/SCU120556Teb7de72e0c3dec7a61d47017d080e19f5f967dd7750b5.send?text=喜马拉雅账号{index}&desp=账号当前剩余{result["total"]/10000}元，今日获得:{result["todayTotal"]/10000}元！！！""")
+            f"""https://sc.ftqq.com/SCU120556Teb7de72e0c3dec7a61d47017d080e19f5f967dd7750b5.send?text=喜马拉雅账号{index}&desp=账号当前剩余{result["total"]/10000}元，今日获得:{result["todayTotal"]/10000}元, 预计还有：{(20 - result["total"]/10000)/(result["todayTotal"]/10000)}天提现！！！""")
 
 
 def answer(cookies):
